@@ -103,8 +103,8 @@ def sum_until_prime_input():
     #   The testing code is already written for you (above).
     # -------------------------------------------------------------------------
     while True:
-        n=int(input('Input a number greater than or equal to 2: '))
-        if(is_prime(n)):
+        n = int(input('Input a number greater than or equal to 2: '))
+        if (is_prime(n)):
             break
 
 
@@ -203,10 +203,10 @@ def next_prime(m):
     # IMPLEMENTATION REQUIREMENT:
     #    -- Use (call) the   is_prime   function above appropriately.
     # -------------------------------------------------------------------------
-    i=m-1
+    i = m - 1
     while True:
-        i+=1
-        if(is_prime(i)):
+        i += 1
+        if (is_prime(i)):
             return i
             break
 
@@ -218,15 +218,15 @@ def run_test_prime_gap():
     print('Testing the   prime_gap   function:')
     print('--------------------------------------------------')
 
-    #Test 1 gives a number less than 2 as m. It will not work
+    # Test 1 gives a number less than 2 as m. It will not work
     # Test 1:
-    #print()
-    #print('TEST STARTED!  Has it ended?')
-    #expected = 2
-    #actual = prime_gap(1)
-    #print('Expected:', expected)
-    #print('Actual:  ', actual)
-    #print('TEST ENDED!')
+    # print()
+    # print('TEST STARTED!  Has it ended?')
+    # expected = 2
+    # actual = prime_gap(1)
+    # print('Expected:', expected)
+    # print('Actual:  ', actual)
+    # print('TEST ENDED!')
 
     # Test 2:
     print()
@@ -348,15 +348,14 @@ def prime_gap(m):
     #    -- Use (call) the   *** next_prime ***   function
     #       (that you implemented) appropriately.
     # -------------------------------------------------------------------------
-    k=m-1
+    k = m - 1
     while True:
-        k+=1
+        k += 1
         firstPrime = next_prime(k)
-        secondPrime=next_prime(firstPrime+1)
-        if(secondPrime-firstPrime>=m):
+        secondPrime = next_prime(firstPrime + 1)
+        if (secondPrime - firstPrime >= m):
             return firstPrime
             break
-
 
 
 def run_test_wait_for_sum_of_cubes():
@@ -438,7 +437,7 @@ def run_test_wait_for_sum_of_cubes():
     # Test 7:
     print()
     print('TEST STARTED!  Has it ended?')
-    expected = 1
+    expected = 2
     actual = wait_for_sum_of_cubes(9)
     print('Expected:', expected)
     print('Actual:  ', actual)
@@ -492,7 +491,7 @@ def wait_for_sum_of_cubes(x):
       :type x: float  [or an int]
     """
     # -------------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # DONE: 7. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #
     # IMPLEMENTATION REQUIREMENT:
@@ -502,6 +501,14 @@ def wait_for_sum_of_cubes(x):
     # (or look up) a formula that would allow a faster computation.
     # But no fair using any such approach in this implementation.
     # -------------------------------------------------------------------------
+    total = 0
+    k = 1
+    while True:
+        total += k ** 3
+        if (total >= x):
+            return k
+            break
+        k += 1
 
 
 # -----------------------------------------------------------------------------
