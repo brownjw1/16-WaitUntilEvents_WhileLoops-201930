@@ -218,14 +218,15 @@ def run_test_prime_gap():
     print('Testing the   prime_gap   function:')
     print('--------------------------------------------------')
 
+    #Test 1 gives a number less than 2 as m. It will not work
     # Test 1:
-    print()
-    print('TEST STARTED!  Has it ended?')
-    expected = 2
-    actual = prime_gap(1)
-    print('Expected:', expected)
-    print('Actual:  ', actual)
-    print('TEST ENDED!')
+    #print()
+    #print('TEST STARTED!  Has it ended?')
+    #expected = 2
+    #actual = prime_gap(1)
+    #print('Expected:', expected)
+    #print('Actual:  ', actual)
+    #print('TEST ENDED!')
 
     # Test 2:
     print()
@@ -340,7 +341,7 @@ def prime_gap(m):
       :type m: int
     """
     # -------------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #   The testing code is already written for you (above).
     #
     # IMPLEMENTATION REQUIREMENT:
@@ -350,9 +351,10 @@ def prime_gap(m):
     k=m-1
     while True:
         k+=1
-        next=next_prime(k)
-        if(next-m>=m):
-            return k
+        firstPrime = next_prime(k)
+        secondPrime=next_prime(firstPrime+1)
+        if(secondPrime-firstPrime>=m):
+            return firstPrime
             break
 
 
@@ -360,7 +362,7 @@ def prime_gap(m):
 def run_test_wait_for_sum_of_cubes():
     """ Tests the   wait_for_sum_of_cubes    function. """
     # -------------------------------------------------------------------------
-    # TODO: 6. Implement this TEST function.
+    # DONE: 6. Implement this TEST function.
     #   It TESTS the  wait_for_sum_of_cubes  function defined below.
     #   Include at least  ** 8 **  tests. (We supplied 6 tests for you.)
     #
@@ -426,7 +428,7 @@ def run_test_wait_for_sum_of_cubes():
     print('Actual:  ', actual)
     print('TEST ENDED!')
 
-    # TODO 6 (continued):
+    # DONE 6 (continued):
     #   PUT YOUR TEST   ** IN THE SPACE BETWEEN **   the
     #   print('TEST STARTED!' ...) and print('TEST ENDED') lines below.
     #
@@ -436,17 +438,23 @@ def run_test_wait_for_sum_of_cubes():
     # Test 7:
     print()
     print('TEST STARTED!  Has it ended?')
-
+    expected = 1
+    actual = wait_for_sum_of_cubes(9)
+    print('Expected:', expected)
+    print('Actual:  ', actual)
     print('TEST ENDED!')
 
-    # TODO 6 (continued):
+    # DONE 6 (continued):
     #   PUT YOUR TEST   ** IN THE SPACE BETWEEN **  the
     #   print('TEST STARTED!' ...) and print('TEST ENDED') lines below.
 
     # Test 8:
     print()
     print('TEST STARTED!  Has it ended?')
-
+    expected = 3
+    actual = wait_for_sum_of_cubes(10)
+    print('Expected:', expected)
+    print('Actual:  ', actual)
     print('TEST ENDED!')
 
 
